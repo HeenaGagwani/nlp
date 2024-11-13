@@ -2,12 +2,12 @@ import streamlit as st
 from query_handler import handle_query
 
 # Page Config
-st.set_page_config("Financial Bot", page_icon=":moneybag:")
+st.set_page_config("Movies Bot", page_icon=":movie_camera:")
 
 # Set up Session State
 if "messages" not in st.session_state:
     st.session_state.messages = [
-        {"role": "assistant", "content": "Hi, I'm the Financial Transaction Chatbot! Ask me about transactions, fraud detection, or anything related!"},
+        {"role": "assistant", "content": "Hi, I'm the Movie Recommendation Chatbot! Ask me about movies, actors, or anything related!"},
     ]
 
 # Function to display chat messages
@@ -32,6 +32,6 @@ for message in st.session_state.messages:
     write_message(message["role"], message["content"], save=False)
 
 # Chat input for user
-if user_input := st.chat_input("Ask me about transactions, fraud detection, or anything related!"):
+if user_input := st.chat_input("Ask me about movies, actors, or anything related!"):
     write_message('user', user_input)
     handle_submit(user_input)
